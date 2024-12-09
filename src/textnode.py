@@ -7,6 +7,7 @@ class TextType(Enum):
     CODE = "code"
     LINKS = "links"
     IMAGES = "images"
+    TEXT = "text"
 
 class TextNode():
     def __init__(self, text, text_type, url = None):
@@ -24,6 +25,24 @@ class TextNode():
     def __repr__(self):
         return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
     
+def text_node_to_html_node(text_node):
+     if not isinstance(text_node, TextNode):
+          raise Exception("not a TextNode")
+     match text_node.text_type:
+          case TextType.NORMAL:
+               return text_node.text
+          case TextType.BOLD:
+               return f"<b>{text_node.text}</b>"
+          case TextType.ITALIC:
+               return f"<i>{text_node.text}</i>"
+          case TextType.CODE:
+               return f"<code>{text_node.text}</code>"
+          case TextType.LINKS:
+               return f"<a href='{text_node.url}'>{text_node.text}</a>"
+          case TextType.IMAGES:
+               return f"<img src='{text_node.url}' alt='{text_node.text}'>"
+          case _:
+               raise Exception(f"Invalid text type: {text_node.text_type}")
 
-        
+
 
