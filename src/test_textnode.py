@@ -19,8 +19,7 @@ class TestTextNode(unittest.TestCase):
     def test_neq_different_text(self):
         node1 = TextNode("test1", TextType.BOLD)
         node2 = TextNode("test2", TextType.BOLD)
-        self.assertNotEqual(node1, node2)
-        
+        self.assertNotEqual(node1, node2)     
     def test_neq_different_type(self):
         node1 = TextNode("test1", TextType.BOLD)
         node2 = TextNode("test1", TextType.ITALIC)
