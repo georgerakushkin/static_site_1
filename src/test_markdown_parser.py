@@ -1,4 +1,4 @@
-from markdown_parser import markdown_to_html_node
+from src.markdown_parser import markdown_to_html_node
 from htmlnode import HTMLNode, LeafNode, ParentNode
 
 def test_markdown_to_html_node():
