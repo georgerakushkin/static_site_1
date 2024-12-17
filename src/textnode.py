@@ -41,6 +41,8 @@ def text_node_to_html_node(text_node):
                return f"<a href='{text_node.url}'>{text_node.text}</a>"
           case TextType.IMAGES:
                return f"<img src='{text_node.url}' alt='{text_node.text}'>"
+          case TextType.TEXT:
+               return text_node.text
           case _:
                raise Exception(f"Invalid text type: {text_node.text_type}")
 

@@ -21,7 +21,7 @@ class HTMLNode():
             return stringed_list; #returns the joined list
 
 class LeafNode(HTMLNode): #a leaf node is a node that has no children
-    def __init__(self, tag: str = None, value: str = None, props: dict = None):
+    def __init__(self, tag: str, value: str, props: dict = None):
         super().__init__(tag, value, props) #inherits from the HTMLNode class and passes the tag, value, and props to the HTMLNode constructor
 
     def to_html(self): #converts the leaf node to a string in html format
@@ -34,7 +34,7 @@ class LeafNode(HTMLNode): #a leaf node is a node that has no children
             return f"<{self.tag}{p}>{self.value}</{self.tag}>" #returns the tag, props, and text content as a string in html format
         
 class ParentNode(HTMLNode):
-    def __init__(self, tag: str = None, children: list = None, props: dict = None):
+    def __init__(self, tag: str, children, props: dict = None):
         super().__init__(tag, children, props) #inherits from the HTMLNode class and passes the tag, children, and props to the HTMLNode constructor
     
     def to_html(self):
