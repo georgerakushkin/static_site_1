@@ -72,40 +72,5 @@ def markdown_to_html_node(markdown):
     #print("Final div node:", div_node)  # Debug print
     return div_node
             
-if __name__ == "__main__":
-    # Test markdown string
-    test_markdown = """This is a paragraph.
 
-This is another paragraph with some **bold** text.
-
->Here is some quoted text
-
-- Here is an unordered list
-- another list item
-- okay heres the third and last
-* can we do this too?
-
-1. this is ordered list
-2. second item
-3. third and last item
-
-```this is a line of code```
-
-## This is a second heading
-"""
-
-
-    # Convert markdown to HTML node
-    html_node = markdown_to_html_node(test_markdown)
-    
-    # Print the result
-    #print("\nTest Results:")
-    print("Input Markdown:")
-    #print("-" * 40)
-    print(test_markdown)
-    print("-" * 40)
-    print("\nOutput HTML Node:")
-    #print("-" * 40)
-    print(markdown_to_html_node(test_markdown).to_html())
-    print("-" * 40)
             
