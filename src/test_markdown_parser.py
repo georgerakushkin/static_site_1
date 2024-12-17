@@ -31,16 +31,14 @@ This is a paragraph
         self.assertEqual(node.children[0].value, "This is a regular paragraph.")  # Check content
 
         # Test multiple paragraphs
-        markdown = """
-This is paragraph one.
+        markdown = """This is paragraph one.
 
-This is paragraph two.
-"""
+This is paragraph two."""
         node = markdown_to_html_node(markdown)
-        self.assertEqual(len(node.children), 2)  # Should have two paragraph children
+        self.assertEqual(len(node.children), 2)  # Should have 2 paragraph children
         self.assertEqual(node.children[0].tag, "p")
-        self.assertEqual(node.children[1].tag, "p")
         self.assertEqual(node.children[0].value, "This is paragraph one.")
+        self.assertEqual(node.children[1].tag, "p") 
         self.assertEqual(node.children[1].value, "This is paragraph two.")
 
     def test_manual_cases(self):

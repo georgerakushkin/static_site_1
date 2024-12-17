@@ -1,3 +1,2 @@
-python3 -m unittest discover -s src
-
-python3 -m unittest test_markdown_parser.py
+#!/bin/bash
+python3 -m unittest discover -s src -v

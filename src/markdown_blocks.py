@@ -2,14 +2,33 @@ import re
 from htmlnode import *
 
 def markdown_to_blocks(markdown):
-    blocks = markdown.split("\n\n")
-    filtered_blocks = []
-    for block in blocks:
-        if block =="":
-            continue
-        block = block.strip()
-        filtered_blocks.append(block)
-    return filtered_blocks
+    # First, normalize line endings and remove leading/trailing whitespace
+    markdown = markdown.strip()
+    blocks = []
+    current_block = []
+    
+    for line in markdown.split("\n"):
+        line = line.strip()
+        # If it's a heading, treat it as its own block
+        if line.startswith("#"):
+            if current_block:
+                blocks.append("\n".join(current_block))
+                current_block = []
+            blocks.append(line)
+        # If it's an empty line, end the current block
+        elif line == "":
+            if current_block:
+                blocks.append("\n".join(current_block))
+                current_block = []
+        # Otherwise add to current block
+        else:
+            current_block.append(line)
+    
+    # Don't forget the last block
+    if current_block:
+        blocks.append("\n".join(current_block))
+    
+    return [block for block in blocks if block.strip()]
 
 def block_to_block_type(markdown):
     block_type = "paragraph"

@@ -14,7 +14,7 @@ from markdown_blocks import *
 
 def markdown_to_html_node(markdown):
     filtered_blocks = markdown_to_blocks(markdown) #turns the markdown into a list of lines/blocks
-    #print("markdown" + markdown + "end")
+    print("Blocks:", filtered_blocks)  # Debug print
     #print("Filtered blocks:", filtered_blocks)  # Debug print
     
     div_node = ParentNode("div", "", []) #main node that gets everything put into it
