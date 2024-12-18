@@ -5,8 +5,8 @@ class TextType(Enum):
     BOLD = "bold"
     ITALIC = "italic"
     CODE = "code"
-    LINKS = "links"
-    IMAGES = "images"
+    LINK = "link"
+    IMAGE = "image"
     TEXT = "text"
 
 class TextNode():
@@ -37,9 +37,9 @@ def text_node_to_html_node(text_node):
                return f"<i>{text_node.text}</i>"
           case TextType.CODE:
                return f"<code>{text_node.text}</code>"
-          case TextType.LINKS:
+          case TextType.LINK:
                return f"<a href='{text_node.url}'>{text_node.text}</a>"
-          case TextType.IMAGES:
+          case TextType.IMAGE:
                return f"<img src='{text_node.url}' alt='{text_node.text}'>"
           case TextType.TEXT:
                return text_node.text
